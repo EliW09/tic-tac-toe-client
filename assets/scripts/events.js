@@ -34,6 +34,17 @@ const box9Stuff = (event) => {
   $('#box9').text('X')
 }
 
+const trying = (event) => {
+  for (let i = 0; i <= 9; i++) {
+    if (i === 0) {
+      $(event.currentTarget).text('X')
+    } else {
+      console.log('fail')
+      // $(event.currentTarget).text('O')
+    }
+  }
+}
+
 module.exports = {
   box1Stuff,
   box2Stuff,
@@ -43,5 +54,6 @@ module.exports = {
   box6Stuff,
   box7Stuff,
   box8Stuff,
-  box9Stuff
+  box9Stuff,
+  trying
 }
