@@ -1,1 +1,41 @@
 @import '~bootstrap/scss/bootstrap';
+
+$background-color: #252525;
+$font-color: $white;
+$white: #fff;
+$grey: rgb(128, 128, 128);
+$teal: rgb(0, 156, 161);
+$black: #000;
+
+body {
+  background-color: $background-color;
+  text-align: center;
+}
+
+.box {
+  align-items: center;
+  border: 1px solid #12B730;
+  color: $font-color;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  font-family: Indie Flower;
+  font-size: 42px;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.teal {
+  background-color: #303030;
+}
+
+.row {
+  justify-content: center;
+}
+
+h1 {
+  color: $font-color;
+  font-family: Indie Flower;
+}
