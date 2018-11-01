@@ -1,59 +1,57 @@
-const box1Stuff = (event) => {
-  $('#box1').text('X')
-}
+// remove for loop and do basic i = and set the text to x or o based on number
 
-const box2Stuff = (event) => {
-  $('#box2').text('O')
-}
-
-const box3Stuff = (event) => {
-  $('#box3').text('X')
-}
-
-const box4Stuff = (event) => {
-  $('#box4').text('O')
-}
-
-const box5Stuff = (event) => {
-  $('#box5').text('X')
-}
-
-const box6Stuff = (event) => {
-  $('#box6').text('O')
-}
-
-const box7Stuff = (event) => {
-  $('#box7').text('X')
-}
-
-const box8Stuff = (event) => {
-  $('#box8').text('O')
-}
-
-const box9Stuff = (event) => {
-  $('#box9').text('X')
-}
+let currentPlayer = 'X'
+const playerX = 'X'
+const playerO = 'O'
+const board = ['', '', '', '', '', '', '', '', '']
+const thePlayer = currentPlayer
 
 const trying = (event) => {
-  for (let i = 0; i <= 9; i++) {
-    if (i === 0) {
-      $(event.currentTarget).text('X')
-    } else {
-      console.log('fail')
-      // $(event.currentTarget).text('O')
+  const target = $(event.target)
+  if (target.text() === '') {
+    switchPlayer()
+    checkForWin(thePlayer)
+  } else {
+    console.log('click an empty spot')
+  }
+}
+
+const switchPlayer = () => {
+  currentPlayer = currentPlayer === playerX ? playerO : playerX
+  if (currentPlayer === playerX) {
+    $(event.currentTarget).text(playerO)
+    board[event.currentTarget.id] = 'O'
+  } else {
+    $(event.currentTarget).text(playerX)
+    board[event.currentTarget.id] = 'X'
+  }
+}
+
+// 0 | 1 | 2
+// ---------
+// 3 | 4 | 5
+// ---------
+// 6 | 7 | 8
+
+const combos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
+const checkForWin = () => {
+  for (let i = 0; i < combos.length; i++) {
+    if (board[combos[i][0]] === 'X' && board[combos[i][1]] === 'X' && board[combos[i][2]] === 'X') {
+      console.log('win')
     }
   }
 }
 
 module.exports = {
-  box1Stuff,
-  box2Stuff,
-  box3Stuff,
-  box4Stuff,
-  box5Stuff,
-  box6Stuff,
-  box7Stuff,
-  box8Stuff,
-  box9Stuff,
   trying
 }
