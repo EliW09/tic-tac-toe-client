@@ -1,31 +1,9 @@
-// remove for loop and do basic i = and set the text to x or o based on number
 
-let currentPlayer = 'X'
+const board = ['', '', '', '', '', '', '', '', ''] // the game board as an array
+let currentPlayer = 'X' // first turn
 const playerX = 'X'
 const playerO = 'O'
-const board = ['', '', '', '', '', '', '', '', '']
-const thePlayer = currentPlayer
-
-const trying = (event) => {
-  const target = $(event.target)
-  if (target.text() === '') {
-    switchPlayer()
-    checkForWin(thePlayer)
-  } else {
-    console.log('click an empty spot')
-  }
-}
-
-const switchPlayer = () => {
-  currentPlayer = currentPlayer === playerX ? playerO : playerX
-  if (currentPlayer === playerX) {
-    $(event.currentTarget).text(playerO)
-    board[event.currentTarget.id] = 'O'
-  } else {
-    $(event.currentTarget).text(playerX)
-    board[event.currentTarget.id] = 'X'
-  }
-}
+let gameOver = false
 
 // 0 | 1 | 2
 // ---------
@@ -44,14 +22,76 @@ const combos = [
   [2, 4, 6]
 ]
 
-const checkForWin = () => {
+const resetBoard = () => {
+  $('#0').empty()
+  $('#1').empty()
+  $('#2').empty()
+  $('#3').empty()
+  $('#4').empty()
+  $('#5').empty()
+  $('#6').empty()
+  $('#7').empty()
+  $('#8').empty()
+  gameOver = false
+  currentPlayer = 'X'
+  $('#message').empty()
+  for (let i = 0; i < board.length; i++) {
+    board[i] = ''
+  }
+}
+
+const movement = () => {
+  if (currentPlayer === playerO) {
+    $(event.currentTarget).text(playerO)
+    board[event.currentTarget.id] = 'O'
+  }
+  if (currentPlayer === playerX) {
+    $(event.currentTarget).text(playerX)
+    board[event.currentTarget.id] = 'X'
+  }
+}
+
+const switchPlayer = () => { // the switch function that keeps rotating turns and sets the set turn on board and in array
+  if (currentPlayer === playerO) {
+    console.log('in switch player and the player is', currentPlayer)
+  } else {
+    console.log('in switch player and the player is', currentPlayer)
+  }
+  currentPlayer = currentPlayer === playerX ? playerO : playerX
+}
+
+const checkForWin = (thePlayer) => {
   for (let i = 0; i < combos.length; i++) {
-    if (board[combos[i][0]] === 'X' && board[combos[i][1]] === 'X' && board[combos[i][2]] === 'X') {
-      console.log('win')
+    console.log('in check for win and the player is ', thePlayer)
+    if (board[combos[i][0]] === thePlayer && board[combos[i][1]] === thePlayer && board[combos[i][2]] === thePlayer) {
+      $('#message').text('Player ' + thePlayer + ' has won!')
+      gameOver = true
+    }
+  }
+}
+
+const checkForTie = () => {
+  if ($('#0').text() && $('#1').text() && $('#2').text() && $('#3').text() && $('#4').text() && $('#5').text() && $('#6').text() && $('#7').text() && $('#8').text() !== '') {
+    $('#message').text("It's a tie!")
+    gameOver = true
+  }
+}
+
+const main = (event) => { // the main function checking if a cell is empty and if so runs turn movement and wincheck
+  const target = $(event.target)
+  if (gameOver === false) {
+    if (target.text() === '') {
+      movement()
+      checkForWin(currentPlayer)
+      checkForTie()
+      switchPlayer()
+    } else {
+      console.log('click an empty spot')
     }
   }
 }
 
 module.exports = {
-  trying
+  main,
+  resetBoard
 }
