@@ -9,6 +9,7 @@
 const events = require('./events')
 const authEvents = require('./authevents.js')
 const siteEvents = require('./siteevents.js')
+const gEvents = require('./gameevents.js')
 
 $(() => {
   $('#0').on('click', events.main)
@@ -31,5 +32,6 @@ $(() => {
   $('#regbtn').on('click', siteEvents.runRegisterAcc)
   $('#chgbtn').on('click', siteEvents.runChangePass)
 
-  $('#resetbtn').on('click', events.resetBoard)
+  $('#startbtn').on('click', events.showGame)
+  $('#allgame').on('click', gEvents.displayGames)
 })

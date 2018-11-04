@@ -1,3 +1,6 @@
+const gEvent = require('./gameevents.js')
+const api = require('./gameapi.js')
+const store = require('./store.js')
 
 const board = ['', '', '', '', '', '', '', '', ''] // the game board as an array
 let currentPlayer = 'X' // first turn
@@ -38,16 +41,34 @@ const resetBoard = () => {
   for (let i = 0; i < board.length; i++) {
     board[i] = ''
   }
+  gEvent.newGame()
+}
+
+const showGame = () => {
+  $('.gamecontainer').show()
+  resetBoard()
 }
 
 const movement = () => {
   if (currentPlayer === playerO) {
     $(event.currentTarget).text(playerO)
     board[event.currentTarget.id] = 'O'
+    checkForWin(currentPlayer)
+    checkForTie()
+    let cId = event.currentTarget.id
+    let player = 'O'
+    let isGameOver = gameOver
+    api.updateMoves(cId, player, isGameOver)
   }
   if (currentPlayer === playerX) {
     $(event.currentTarget).text(playerX)
     board[event.currentTarget.id] = 'X'
+    checkForWin(currentPlayer)
+    checkForTie()
+    let cId = event.currentTarget.id
+    let player = 'X'
+    let isGameOver = gameOver
+    api.updateMoves(cId, player, isGameOver)
   }
 }
 
@@ -82,8 +103,6 @@ const main = (event) => { // the main function checking if a cell is empty and i
   if (gameOver === false) {
     if (target.text() === '') {
       movement()
-      checkForWin(currentPlayer)
-      checkForTie()
       switchPlayer()
     } else {
       console.log('click an empty spot')
@@ -93,5 +112,6 @@ const main = (event) => { // the main function checking if a cell is empty and i
 
 module.exports = {
   main,
-  resetBoard
+  resetBoard,
+  showGame
 }

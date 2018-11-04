@@ -1,6 +1,7 @@
 const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const events = require('./events.js')
 
 const onSignUp = (event) => {
   $('#signupform').hide()
@@ -14,8 +15,9 @@ const onSignUp = (event) => {
 
 const onSignIn = (event) => {
   $('#signinform').hide()
-  $('.gamecontainer').show()
+  $('#startbtn').show()
   $('#resetbtn').show()
+  $('#allgame').show()
   $('#inbtn').hide()
   $('#regbtn').hide()
   $('#outbtn').show()
@@ -30,7 +32,9 @@ const onSignIn = (event) => {
 const onSignOut = (event) => {
   $('#signoutform').hide()
   $('.gamecontainer').hide()
+  $('#startbtn').hide()
   $('#resetbtn').hide()
+  $('#allgame').hide()
   $('#inbtn').show()
   $('#regbtn').show()
   $('#outbtn').hide()
