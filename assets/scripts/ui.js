@@ -14,7 +14,6 @@ const signUpFailure = error => {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('#sign-up')[0].reset()
-  // console.error('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = data => {
@@ -35,7 +34,6 @@ const signInFailure = error => {
   $('#message').text('Error on sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  // console.error('signInFailure ran. Error is :', error)
   $('#sign-in')[0].reset()
 }
 
@@ -44,7 +42,6 @@ const changePasswordSuccess = data => {
   $('#message').text('Password changed successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
-  // console.log('changePasswordSuccess ran. Data is :', data)
   $('#change-password')[0].reset()
 }
 
@@ -53,7 +50,6 @@ const changePasswordFailure = error => {
   $('#message').text('Error on password change')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  // console.error('changePasswordFailure ran. Error is :', error)
   $('#change-password')[0].reset()
 }
 
@@ -64,7 +60,6 @@ const signOutSuccess = data => {
   store.user = null
   $('#message').removeClass()
   $('#message').addClass('success')
-  // console.log('signOutSuccess ran. Data is :', data)
   $('#sign-out')[0].reset()
 }
 
@@ -73,7 +68,6 @@ const signOutFailure = error => {
   $('#message').text('Error on sign out')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  // console.error('signOutFailure ran. Error is :', error)
   $('#sign-out')[0].reset()
 }
 

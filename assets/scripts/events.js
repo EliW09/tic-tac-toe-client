@@ -74,14 +74,15 @@ const movement = () => {
 
 const switchPlayer = () => { // the switch function that keeps rotating turns and sets the set turn on board and in array
   if (currentPlayer === playerO) {
+
   } else {
+
   }
   currentPlayer = currentPlayer === playerX ? playerO : playerX
 }
 
 const checkForWin = (thePlayer) => {
   for (let i = 0; i < combos.length; i++) {
-    // console.log('in check for win and the player is ', thePlayer)
     if (board[combos[i][0]] === thePlayer && board[combos[i][1]] === thePlayer && board[combos[i][2]] === thePlayer) {
       $('#message').text('Player ' + thePlayer + ' has won!')
       gameOver = true
@@ -103,7 +104,7 @@ const main = (event) => { // the main function checking if a cell is empty and i
       movement()
       switchPlayer()
     } else {
-      $('#message').text('Select an empty cell.')
+      $('#message').text('Select an empty box.')
     }
   }
 }
