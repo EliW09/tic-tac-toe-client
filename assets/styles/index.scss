@@ -6,9 +6,10 @@ $white: #fff;
 $grey: rgb(128, 128, 128);
 $teal: rgb(0, 156, 161);
 $black: #000;
+$mygreen: #10A725;
 
 body {
-  background-color: $background-color;
+  background: linear-gradient(to left top, #383838, #252525, #107425, #303030, #242424, #232323) fixed;
   text-align: center;
 }
 
@@ -35,11 +36,84 @@ body {
   justify-content: center;
 }
 
+.Login {
+  color: white;
+}
+
+#outbtn {
+  display: none;
+}
+
+#chgbtn {
+  display: none;
+}
+
+#signupform {
+  display: none;
+}
+
+#signinform {
+  display: none;
+}
+
+#signoutform {
+  display: none;
+}
+
+#changepassform {
+  display: none;
+}
+
+#resetbtn {
+  display: none;
+}
+
+#startbtn {
+  display: none;
+}
+
+#allgame {
+  display: none;
+}
+
+.gamecontainer {
+  display: none;
+}
+
 h1 {
   color: $font-color;
   font-family: Indie Flower;
+  font-size: 60px;
 }
 
 header {
-  background-color: #282828
+  background: linear-gradient(to left top, #383838, #252525, #107425, #303030, #242424, #232323) fixed;
+}
+
+#welcome {
+  color: white;
+  font-family: Indie Flower;
+}
+
+#message {
+  color: white;
+  font-family: Indie Flower;
+}
+
+p {
+  color: white;
+  font-family: Indie Flower;
+  font-size: 22px;
+}
+
+input[type=text] {
+  padding: 5px 12px;
+  margin: 2px 0;
+  box-sizing: border-box;
+}
+
+input[type=password] {
+  padding: 5px 12px;
+  margin: 2px 0;
+  box-sizing: border-box;
 }
