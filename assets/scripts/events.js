@@ -74,9 +74,7 @@ const movement = () => {
 
 const switchPlayer = () => { // the switch function that keeps rotating turns and sets the set turn on board and in array
   if (currentPlayer === playerO) {
-    // console.log('in switch player and the player is', currentPlayer)
   } else {
-    // console.log('in switch player and the player is', currentPlayer)
   }
   currentPlayer = currentPlayer === playerX ? playerO : playerX
 }
