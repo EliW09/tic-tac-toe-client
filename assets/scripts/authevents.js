@@ -1,7 +1,6 @@
 const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
-const events = require('./events.js')
 
 const onSignUp = (event) => {
   $('#signupform').hide()
