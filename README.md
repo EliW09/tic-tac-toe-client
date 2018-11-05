@@ -1,4 +1,3 @@
-`
 Technologies used:
   HTML5
   CSS / SCSS
@@ -25,4 +24,3 @@ As a user, I want to see my name when I login to my account
 
 Unsolved problems:
   Organize all of my code and clean up my functions to allow for less code blocks and faster interaction on the webpage. Also would like to make an AI to play against.
-`
