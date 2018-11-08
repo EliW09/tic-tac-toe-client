@@ -8,9 +8,36 @@ $teal: rgb(0, 156, 161);
 $black: #000;
 $mygreen: #10A725;
 
+#topstuff {
+  background: #282e33;
+  color: $mygreen;
+  border-bottom: 3px solid #434a52;
+}
+
+#theBG:hover {
+  background: #4f5356;
+}
+
+#theIn:hover {
+  background: #4f5356;
+}
+
+#goBack:hover {
+  background: #4f5356;
+}
+
+#acc:hover {
+  background: #4f5356;
+}
+
 body {
-  background: linear-gradient(to left top, #383838, #252525, #107425, #303030, #242424, #232323) fixed;
-  text-align: center;
+  background: black;
+  font-family: 'Orbitron';
+}
+
+canvas {
+  position: absolute;
+  z-index: -1;
 }
 
 .box {
@@ -20,12 +47,8 @@ body {
   display: flex;
   height: 80px;
   justify-content: center;
-  font-family: Indie Flower;
+  font-family: 'Orbitron';
   font-size: 42px;
-}
-
-.grey {
-  background-color: grey;
 }
 
 .teal {
@@ -40,80 +63,284 @@ body {
   color: white;
 }
 
-#outbtn {
-  display: none;
-}
-
-#chgbtn {
-  display: none;
-}
-
-#signupform {
-  display: none;
-}
-
-#signinform {
-  display: none;
-}
-
-#signoutform {
-  display: none;
-}
-
-#changepassform {
-  display: none;
-}
-
-#resetbtn {
-  display: none;
-}
-
-#startbtn {
-  display: none;
-}
-
-#allgame {
-  display: none;
-}
-
-.gamecontainer {
-  display: none;
-}
-
 h1 {
   color: $font-color;
-  font-family: Indie Flower;
+  font-family: 'Orbitron';
   font-size: 60px;
 }
 
-header {
-  background: linear-gradient(to left top, #383838, #252525, #107425, #303030, #242424, #232323) fixed;
+h3 {
+  font-family: 'Orbitron';
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  background-color: #282e33;
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #282e33;
 }
 
 #welcome {
   color: white;
-  font-family: Indie Flower;
+  font-family: 'Orbitron';
 }
 
 #message {
   color: white;
-  font-family: Indie Flower;
+  font-family: 'Orbitron';
 }
 
 p {
   color: white;
-  font-family: Indie Flower;
-  font-size: 22px;
+  font-family: 'Orbitron';
+  font-size: 18px;
+  text-align: center;
 }
 
-input[type=text] {
-  padding: 5px 12px;
-  margin: 2px 0;
-  box-sizing: border-box;
+#mybtns {
+  text-align: center;
 }
 
-input[type=password] {
-  padding: 5px 12px;
-  margin: 2px 0;
-  box-sizing: border-box;
+#gamediv {
+  width: 775px;
+  height: 720px;
+  padding: 8% 0 0;
+  margin: auto;
 }
+
+#gamedivform {
+  position: realtive;
+  z-index: 1;
+  background: #282e33;
+  max-width: 775px;
+  max-height: 720px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #434a52;
+  border-left: 3px solid #434a52;
+  border-right: 3px solid #434a52;
+}
+
+// Login Form //
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #282e33;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #434a52;
+  border-left: 3px solid #434a52;
+  border-right: 3px solid #434a52;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #3b4148;
+  color: #a9a9a9;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.form #sign-up {
+  display: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.container .info span .fa {
+  color: #EF3B3A;
+}
+
+// End Login Form //
+
+// Account Form //
+
+.account-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.accpage {
+  position: relative;
+  z-index: 1;
+  background: #282e33;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #434a52;
+  border-left: 3px solid #434a52;
+  border-right: 3px solid #434a52;
+}
+
+.accpage input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #3b4148;
+  color: #a9a9a9;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.accpage button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.accpage button:hover, .accpage button:active, .accpage button:focus {
+  background: #43A047;
+}
+
+.accpage .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.accpage .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.container .info span .fa {
+  color: #EF3B3A;
+}
+
+// End Account Form //

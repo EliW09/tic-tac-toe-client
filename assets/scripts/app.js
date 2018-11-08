@@ -7,9 +7,12 @@
 // require('./example')
 
 const events = require('./events')
-const authEvents = require('./authevents.js')
-const siteEvents = require('./siteevents.js')
-const gEvents = require('./gameevents.js')
+const authEvents = require('./api/auth/authevents.js')
+const siteEvents = require('./api/auth/siteevents.js')
+const gEvents = require('./api/game/gameevents.js')
+const canMatrix = require('./theme/matrix.js')
+const cusFont = require('./theme/cusfont.js')
+const themeE = require('./theme/events.js')
 
 $(() => {
   $('#0').on('click', events.main)
@@ -24,14 +27,27 @@ $(() => {
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('submit', authEvents.onSignOut)
-
-  $('#inbtn').on('click', siteEvents.runLogIn)
-  $('#outbtn').on('click', authEvents.onSignOut)
-  $('#regbtn').on('click', siteEvents.runRegisterAcc)
-  $('#chgbtn').on('click', siteEvents.runChangePass)
+  $('#passbtn').on('submit', authEvents.onChangePassword)
+  $('.logoutbtn').on('click', authEvents.onSignOut)
 
   $('#startbtn').on('click', events.showGame)
   $('#allgame').on('click', gEvents.displayGames)
+
+  $('.message a').click(function () {
+    $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow')
+  })
+
+  $('#theBG').on('click', canMatrix.theBack)
+
+  $(document).ready(canMatrix.draw)
+  $(document).ready(cusFont.typeWriterHeader)
+
+  $(document).ready(events.starthide)
+
+  $('#acc').on('click', themeE.signedIn)
+  $('#goBack').on('click', themeE.signedInDone)
+
+  $('#navbar li').click(function () {
+    $(this).addClass('active').siblings('li').removeClass('active')
+  })
 })
