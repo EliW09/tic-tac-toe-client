@@ -1,12 +1,12 @@
-const gEvent = require('./gameevents.js')
-const api = require('./gameapi.js')
-const store = require('./store.js')
+const gEvent = require('./api/game/gameevents.js')
+const api = require('./api/game/gameapi.js')
 
 const board = ['', '', '', '', '', '', '', '', ''] // the game board as an array
 let currentPlayer = 'X' // first turn
 const playerX = 'X'
 const playerO = 'O'
 let gameOver = false
+let won = false
 
 // 0 | 1 | 2
 // ---------
@@ -25,6 +25,15 @@ const combos = [
   [2, 4, 6]
 ]
 
+const starthide = () => {
+  $('#acc').hide()
+  $('#goBack').hide()
+  $('#theIn').hide()
+  $('.gamecontainer').hide()
+  $('.account-page').hide()
+  $('#gamediv').hide()
+}
+
 const resetBoard = () => {
   $('#0').empty()
   $('#1').empty()
@@ -36,6 +45,7 @@ const resetBoard = () => {
   $('#7').empty()
   $('#8').empty()
   gameOver = false
+  won = false
   currentPlayer = 'X'
   $('#message').empty()
   for (let i = 0; i < board.length; i++) {
@@ -55,20 +65,26 @@ const movement = () => {
     board[event.currentTarget.id] = 'O'
     checkForWin(currentPlayer)
     checkForTie()
-    let cId = event.currentTarget.id
-    let player = 'O'
-    let isGameOver = gameOver
+    const cId = event.currentTarget.id
+    const player = 'O'
+    const isGameOver = gameOver
     api.updateMoves(cId, player, isGameOver)
+    if (won === false) {
+      $('#message').text("Player X's turn.")
+    }
   }
   if (currentPlayer === playerX) {
     $(event.currentTarget).text(playerX)
     board[event.currentTarget.id] = 'X'
     checkForWin(currentPlayer)
     checkForTie()
-    let cId = event.currentTarget.id
-    let player = 'X'
-    let isGameOver = gameOver
+    const cId = event.currentTarget.id
+    const player = 'X'
+    const isGameOver = gameOver
     api.updateMoves(cId, player, isGameOver)
+    if (won === false) {
+      $('#message').text("Player O's turn.")
+    }
   }
 }
 
@@ -86,14 +102,16 @@ const checkForWin = (thePlayer) => {
     if (board[combos[i][0]] === thePlayer && board[combos[i][1]] === thePlayer && board[combos[i][2]] === thePlayer) {
       $('#message').text('Player ' + thePlayer + ' has won!')
       gameOver = true
+      won = true
     }
   }
 }
 
 const checkForTie = () => {
-  if ($('#0').text() && $('#1').text() && $('#2').text() && $('#3').text() && $('#4').text() && $('#5').text() && $('#6').text() && $('#7').text() && $('#8').text() !== '') {
+  if ($('#0').text() && $('#1').text() && $('#2').text() && $('#3').text() && $('#4').text() && $('#5').text() && $('#6').text() && $('#7').text() && $('#8').text() !== '' && won === false) {
     $('#message').text("It's a tie!")
     gameOver = true
+    won = true
   }
 }
 
@@ -112,5 +130,6 @@ const main = (event) => { // the main function checking if a cell is empty and i
 module.exports = {
   main,
   resetBoard,
-  showGame
+  showGame,
+  starthide
 }
