@@ -5,6 +5,8 @@ const signUpSuccess = data => {
   eF.signedUp()
   $('#message').empty()
   $('#message').removeClass()
+  $('#authmessage').empty()
+  $('#authmessage').text('Account Created!')
   $('#sign-up')[0].reset()
 }
 
@@ -20,6 +22,7 @@ const signInSuccess = data => {
   eF.signedIn()
   $('#message').empty()
   $('#welcome').empty()
+  $('#authmessage').empty()
   store.user = data.user
   $('#message').removeClass()
   const getEmail = data.user.email
