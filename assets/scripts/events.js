@@ -7,6 +7,7 @@ const playerX = 'X'
 const playerO = 'O'
 let gameOver = false
 let won = false
+let aiToggle = false
 
 // 0 | 1 | 2
 // ---------
@@ -52,25 +53,150 @@ const resetBoard = () => {
     board[i] = ''
   }
   gEvent.newGame()
+  $('#message').text("Player X's turn.")
 }
 
 const showGame = () => {
   $('.gamecontainer').show()
+  disableAi()
   resetBoard()
 }
 
-const movement = () => {
+const showGameAi = () => {
+  $('.gamecontainer').show()
+  enableAi()
+  resetBoard()
+}
+
+const enableAi = () => {
+  aiToggle = true
+}
+
+const disableAi = () => {
+  aiToggle = false
+}
+
+const basicAi = () => {
+  currentPlayer = playerO
+  const min = 0
+  const max = 8
+  const apiMove = Math.floor(Math.random() * (max - min) + min)
+  console.log(apiMove)
+
   if (currentPlayer === playerO) {
-    $(event.currentTarget).text(playerO)
-    board[event.currentTarget.id] = 'O'
-    checkForWin(currentPlayer)
-    checkForTie()
-    const cId = event.currentTarget.id
-    const player = 'O'
-    const isGameOver = gameOver
-    api.updateMoves(cId, player, isGameOver)
-    if (won === false) {
-      $('#message').text("Player X's turn.")
+    if (board[apiMove] === '') {
+      if (apiMove === 0) {
+        $('#0').text('O')
+        board[0] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 1) {
+        $('#1').text('O')
+        board[1] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 2) {
+        $('#2').text('O')
+        board[2] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 3) {
+        $('#3').text('O')
+        board[3] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 4) {
+        $('#4').text('O')
+        board[4] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 5) {
+        $('#5').text('O')
+        board[5] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 6) {
+        $('#6').text('O')
+        board[6] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 7) {
+        $('#7').text('O')
+        board[7] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+      if (apiMove === 8) {
+        $('#8').text('O')
+        board[8] = 'O'
+        checkForWin(playerO)
+        checkForTie()
+        const cId = apiMove
+        const player = 'O'
+        const isGameOver = gameOver
+        api.updateMoves(cId, player, isGameOver)
+      }
+    } else {
+      basicAi()
+    }
+  }
+}
+
+const movement = () => {
+  if (aiToggle === false) {
+    if (currentPlayer === playerO) {
+      $(event.currentTarget).text(playerO)
+      board[event.currentTarget.id] = 'O'
+      checkForWin(currentPlayer)
+      checkForTie()
+      const cId = event.currentTarget.id
+      const player = 'O'
+      const isGameOver = gameOver
+      api.updateMoves(cId, player, isGameOver)
+      if (won === false) {
+        if (aiToggle === false) {
+          $('#message').text("Player X's turn.")
+        }
+      }
     }
   }
   if (currentPlayer === playerX) {
@@ -78,12 +204,17 @@ const movement = () => {
     board[event.currentTarget.id] = 'X'
     checkForWin(currentPlayer)
     checkForTie()
+    if (aiToggle === true) {
+      basicAi()
+    }
     const cId = event.currentTarget.id
     const player = 'X'
     const isGameOver = gameOver
     api.updateMoves(cId, player, isGameOver)
     if (won === false) {
-      $('#message').text("Player O's turn.")
+      if (aiToggle === false) {
+        $('#message').text("Player O's turn.")
+      }
     }
   }
 }
@@ -131,5 +262,6 @@ module.exports = {
   main,
   resetBoard,
   showGame,
+  showGameAi,
   starthide
 }

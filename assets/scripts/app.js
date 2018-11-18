@@ -8,7 +8,7 @@
 
 const events = require('./events')
 const authEvents = require('./api/auth/authevents.js')
-const siteEvents = require('./api/auth/siteevents.js')
+// const siteEvents = require('./api/auth/siteevents.js')
 const gEvents = require('./api/game/gameevents.js')
 const canMatrix = require('./theme/matrix.js')
 const cusFont = require('./theme/cusfont.js')
@@ -27,10 +27,11 @@ $(() => {
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#passbtn').on('submit', authEvents.onChangePassword)
-  $('.logoutbtn').on('click', authEvents.onSignOut)
+  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#sign-out').on('submit', authEvents.onSignOut)
 
   $('#startbtn').on('click', events.showGame)
+  $('#startbtn2').on('click', events.showGameAi)
   $('#allgame').on('click', gEvents.displayGames)
 
   $('.message a').click(function () {

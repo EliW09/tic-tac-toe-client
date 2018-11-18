@@ -55,6 +55,7 @@ const signInFailure = error => {
 
 const changePasswordSuccess = data => {
   $('#message').empty()
+  $('#authmessage').text('Password changed')
   $('#message').removeClass()
 }
 
@@ -88,10 +89,6 @@ const mainFailure = error => {
   $('#authmessage').text("Can't reach server")
 }
 
-const wipe = () => {
-  $('#message').empty()
-}
-
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -101,6 +98,5 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
-  mainFailure,
-  wipe
+  mainFailure
 }

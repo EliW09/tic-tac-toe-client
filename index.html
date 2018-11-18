@@ -64,15 +64,19 @@
 
       <div class="account-page">
         <div class="accpage">
-          <form class="acc-info">
+          <form id="change-password">
             <p id="accemail"></p>
             <p>Change your password</p>
-            <input type="password" name="passwords[old]" placeholder="Old password">
-            <input type="password" name="passwords[new]" placeholder="New password">
-            <button id="passbtn">Change Password</button>
-            <br>
-            <br>
-            <button class="logoutbtn">Logout</button>
+            <fieldset>
+              <input type="password" name="passwords[old]" placeholder="Old password">
+              <input type="password" name="passwords[new]" placeholder="New password">
+              <input class="btn btn-outline-success" type="submit" value="Change password">
+            </fieldset>
+          </form>
+          <form id="sign-out">
+             <fieldset>
+               <input class="btn btn-outline-success" type="submit" value="Sign out">
+             </fieldset>
           </form>
         </div>
       </div>
@@ -99,6 +103,7 @@
         </div>
         <br>
         <button type="button" class="btn btn-outline-success" id="startbtn">New Game</button>
+        <button type="button" class="btn btn-outline-success" id="startbtn2">New Game with AI</button>
         <button type="button" class="btn btn-outline-success" id="allgame">All Games</button>
       </div>
     </div>

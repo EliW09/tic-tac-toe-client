@@ -4,6 +4,7 @@ const onCreateSuccess = function (data) {
   store.game = {}
   store.game.id = data.game.id
   $('#message').empty()
+  $('#message').text("Player X's turn.")
 }
 
 const onDisplayGames = function (data) {

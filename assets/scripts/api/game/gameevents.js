@@ -3,7 +3,6 @@ const gapi = require('./gameapi.js')
 const ui = require('../auth/ui.js')
 
 const newGame = function (event) {
-  ui.wipe()
   gapi.createTTTGame()
     .then(function (data) {
       gui.onCreateSuccess(data)
