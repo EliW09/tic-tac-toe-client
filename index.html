@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title class="title">- Control Panel -</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body id="body">
+      <canvas id="can"></canvas>
+
+      <nav class="navbar navbar-expand-md justify-content-md-center justify-content-start" id="topstuff">
+        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+          <ul class="navbar-nav mx-auto text-md-center text-left">
+            <li class="nav-item">
+              <a class="nav-link" id="theBG">Toggle Matrix</a>
+            </li>
+            <li class="nav-item my-auto">
+              <h1 class="nav-link navbar-brand mx-0 d-none d-md-inline" id="headertext"></h1>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="acc">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="goBack">Go Back</a>
+            </li>
+            <li class="nav-item">
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <br>
+      <h3 id="welcome"></h3>
+      <p id="authmessage"></p>
+
+      <div class="login-page">
+        <div class="form">
+          <form id="sign-up">
+            <input type="text" name="credentials[email]" placeholder="Email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*" required>
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]"
+                   placeholder="Confirm Password">
+            <button>Register</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+          </form>
+          <form id="sign-in">
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <button>Connect</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="account-page">
+        <div class="accpage">
+          <form id="change-password">
+            <p id="accemail"></p>
+            <p>Change your password</p>
+            <fieldset>
+              <input type="password" name="passwords[old]" placeholder="Old password">
+              <input type="password" name="passwords[new]" placeholder="New password">
+              <input class="btn btn-outline-success" type="submit" value="Change password">
+            </fieldset>
+          </form>
+          <form id="sign-out">
+             <fieldset>
+               <input class="btn btn-outline-success" type="submit" value="Sign out">
+             </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <div id="gamediv">
+        <div id="gamedivform">
+        <p id="message"></p>
+        <div class="gamecontainer">
+              <div class="row">
+                <div class="col-1 box teal" id="0"></div>
+                <div class="col-1 box teal" id="1"></div>
+                <div class="col-1 box teal" id="2"></div>
+              </div>
+              <div class="row">
+                <div class="col-1 box teal" id="3"></div>
+                <div class="col-1 box teal" id="4"></div>
+                <div class="col-1 box teal" id="5"></div>
+              </div>
+              <div class="row">
+                <div class="col-1 box teal" id="6"></div>
+                <div class="col-1 box teal" id="7"></div>
+                <div class="col-1 box teal" id="8"></div>
+              </div>
+        </div>
+        <br>
+        <button type="button" class="btn btn-outline-success" id="startbtn">New Game</button>
+        <button type="button" class="btn btn-outline-success" id="startbtn2">New Game with AI</button>
+        <button type="button" class="btn btn-outline-success" id="allgame">All Games</button>
+      </div>
+    </div>
+
+      <audio autoplay>
+        <source src="https://raw.githubusercontent.com/EliW09/tic-tac-toe-client/gh-pages/music.mp3" type="audio/mpeg">
+      </audio>
+    </body>
+</html>
